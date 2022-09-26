@@ -1,0 +1,13 @@
+@import "variables";
+
+@mixin respond-to($breakpoint) {
+  @if map-has-key($breakpoints, $breakpoint) {
+    @media only screen and (max-width: map-get($breakpoints, $breakpoint)) {
+      @content;
+    }
+  }
+}
+
+@mixin card-width($count, $gap) {
+  width: calc(100% / $count - $gap);
+}

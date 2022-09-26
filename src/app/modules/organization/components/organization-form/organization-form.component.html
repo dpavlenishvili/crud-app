@@ -1,0 +1,59 @@
+<h2 mat-dialog-title>Add New Organization</h2>
+
+<mat-dialog-content class="mat-typography">
+
+  <form [formGroup]="form">
+    <div class="input">
+      <mat-form-field appearance="outline">
+        <mat-label>Name</mat-label>
+        <input formControlName="name" matInput>
+      </mat-form-field>
+    </div>
+    <div class="container">
+      <div class="group" formGroupName="tracking">
+        <h3>Tracking</h3>
+        <div class="input">
+          <mat-form-field appearance="outline">
+            <mat-label>Usage</mat-label>
+            <input formControlName="usage" matInput>
+          </mat-form-field>
+        </div>
+        <div class="input">
+          <mat-form-field appearance="outline">
+            <mat-label>Assigned</mat-label>
+            <input formControlName="assigned" matInput>
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="group" formGroupName="protection">
+        <h3>Protection</h3>
+        <div class="input">
+          <mat-form-field appearance="outline">
+            <mat-label>Usage</mat-label>
+            <input formControlName="usage" matInput>
+          </mat-form-field>
+        </div>
+        <div class="input">
+          <mat-form-field appearance="outline">
+            <mat-label>Assigned</mat-label>
+            <input formControlName="assigned" matInput>
+          </mat-form-field>
+        </div>
+      </div>
+    </div>
+    <label class="image-upload-container">
+      <span>Select Organization Logo</span>
+      <input #imageInput
+             (change)="processFile(imageInput)"
+             accept="image/*"
+             type="file">
+    </label>
+
+  </form>
+
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close>Cancel</button>
+  <button (click)="onSubmit()" mat-button>Add</button>
+</mat-dialog-actions>

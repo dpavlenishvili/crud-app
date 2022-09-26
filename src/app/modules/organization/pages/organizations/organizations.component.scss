@@ -1,0 +1,45 @@
+@import "src/styles/mixins";
+@import "src/styles/variables";
+
+.header-container {
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid $primary-color;
+  padding-bottom: 20px;
+  gap: 20px;
+
+  .title {
+    margin: 0;
+    font-weight: 700;
+    @include respond-to('medium') {
+      font-size: 18px;
+    }
+  }
+
+  .search {
+    .mat-form-field {
+      width: 100%;
+    }
+  }
+
+  .add-action {
+    margin-left: auto;
+  }
+}
+
+.list-container {
+  margin-top: 20px;
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+
+  app-organization-card {
+    @include card-width(3, 14px);
+    @include respond-to('medium') {
+      @include card-width(2, 10px);
+    }
+    @include respond-to('small') {
+      width: 100%;
+    }
+  }
+}

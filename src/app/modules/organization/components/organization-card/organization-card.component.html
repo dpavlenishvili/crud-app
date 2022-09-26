@@ -1,1 +1,57 @@
-<p>organization-card works!</p>
+<mat-card>
+  <mat-card-header>
+    <div class="name">
+      <div [ngStyle]="{'background-image': 'url('+ organization?.file?.src + ')'}" class="title-image"
+           mat-card-avatar></div>
+      <h3>{{organization?.name}}</h3>
+    </div>
+    <button aria-label="MoreVert" mat-icon-button>
+      <mat-icon>more_vert</mat-icon>
+    </button>
+  </mat-card-header>
+
+  <mat-card-content>
+
+    <div class="licenses">
+      Licenses
+    </div>
+
+    <div class="groups">
+      <div class="group">
+        <div class="group-name">
+          <h4>Tracking</h4>
+        </div>
+        <div class="group-items">
+          <div class="item">
+            <div class="name">In use:</div>
+            <div class="value">{{organization?.tracking?.usage}}</div>
+          </div>
+          <div class="item">
+            <div class="name">Assigned:</div>
+            <div class="value">
+              <input [ngModel]="organization?.tracking?.assigned" type="number">
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="group">
+        <div class="group-name">
+          <h4>Protection</h4>
+        </div>
+        <div class="group-items">
+          <div class="item">
+            <div class="name">In use:</div>
+            <div class="value">{{organization?.protection?.usage}}</div>
+          </div>
+          <div class="item">
+            <div class="name">Assigned:</div>
+            <div class="value">
+              <input [ngModel]="organization?.protection?.assigned" type="number">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </mat-card-content>
+</mat-card>

@@ -1,0 +1,119 @@
+@import "src/styles/variables";
+.mat-card {
+  box-shadow: $primary-color 0px 1px 3px 0px, $primary-color 0px 0px 0px 1px;
+
+  .mat-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid $primary-color;
+    padding-bottom: 16px;
+
+    .name {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+
+      .title-image {
+        background-size: cover;
+      }
+
+      h3 {
+        margin: 0;
+        font-weight: 700;
+      }
+    }
+
+    .mat-icon-button {
+      position: relative;
+      left: 18px;
+    }
+  }
+
+  .mat-card-content {
+    margin-top: 16px;
+
+    .licenses {
+      font-weight: 600;
+      font-size: 16px;
+    }
+
+    .groups {
+      margin-top: 16px;
+      display: flex;
+      justify-content: space-between;
+      gap: 30px;
+
+      .group {
+        .group-name {
+          font-weight: 700;
+        }
+
+        .group-items {
+          margin-top: 8px;
+
+          .item {
+            display: flex;
+            gap: 20px;
+
+            .name {
+              width: 70px;
+            }
+
+            .value {
+              input {
+                border: 0;
+                border-bottom: 1px solid;
+                width: 53px;
+              }
+
+              input[type=number]::-webkit-inner-spin-button,
+              input[type=number]::-webkit-outer-spin-button {
+                opacity: 1;
+              }
+            }
+
+            &:last-child {
+              margin-top: 10px;
+            }
+          }
+        }
+
+        &:first-child {
+          .group-items {
+            .item {
+              .value {
+                color: red;
+              }
+            }
+          }
+        }
+
+        &:last-child {
+          .group-items {
+            .item {
+              .value {
+                color: green;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.actions {
+  position: absolute;
+  z-index: 1;
+  padding: 5px 10px;
+  border-radius: 5px;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+
+  .action {
+    &:not(:last-child) {
+      border-bottom: 1px solid;
+    }
+  }
+}
+

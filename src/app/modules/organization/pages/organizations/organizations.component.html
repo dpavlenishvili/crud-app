@@ -1,1 +1,26 @@
-<p>organizations works!</p>
+<ng-container *ngIf="organizations$ | async as organizations">
+  <div class="header-container">
+    <h1 class="title">All Organizations ({{organizations?.length}})</h1>
+    <div class="search">
+      <mat-form-field appearance="outline" class="thinner-input">
+        <mat-label>Clearable input</mat-label>
+        <input (ngModelChange)="onFilter($event)" [(ngModel)]="filterValue" matInput type="text">
+        <button (click)="fetchOrganizations()" *ngIf="filterValue" aria-label="Clear" mat-icon-button matSuffix>
+          <mat-icon>close</mat-icon>
+        </button>
+        <button *ngIf="!filterValue" aria-label="Search" mat-icon-button matSuffix>
+          <mat-icon>search</mat-icon>
+        </button>
+      </mat-form-field>
+    </div>
+    <div class="add-action">
+      <button (click)="showAddModal()" color="primary" mat-raised-button>Add New Organization</button>
+    </div>
+  </div>
+
+  <div class="list-container">
+    <ng-container *ngFor="let organization of organizations">
+      <app-organization-card [organization]="organization"></app-organization-card>
+    </ng-container>
+  </div>
+</ng-container>
